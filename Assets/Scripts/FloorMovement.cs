@@ -18,7 +18,6 @@ public class FloorMovement : MonoBehaviour
     public float floorSpeed = 10.0f;
     public Transform floorTransform;
     Vector3 moveDistance;
-    private Vector3 movedDistance;
     
     float time;
     // Start is called before the first frame update
@@ -47,7 +46,6 @@ public class FloorMovement : MonoBehaviour
 
         moveDistance = getMoveDistance(floorSpeed);
         floorTransform.Translate(moveDistance * Time.deltaTime);
-        movedDistance = moveDistance * Time.deltaTime;
 
     }
 
@@ -85,8 +83,8 @@ public class FloorMovement : MonoBehaviour
         moveDirection *= speed;
         return moveDirection;
     }
-    public Vector3 GetMovedDistance()
+    public Vector3 GetMoveDistance()
     {
-        return movedDistance;
+        return moveDistance;
     }
 }
