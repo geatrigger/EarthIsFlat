@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerManager : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
+    public GameObject otherDoor;
+    float forwardFactor = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,9 @@ public class TriggerManager : MonoBehaviour
         {
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
-            other.transform.position = new Vector3(0, 10.0f, 0);
+            other.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor;
+            Rigidbody playerRigid = other.gameObject.GetComponent<Rigidbody>();
+            //playerRigid.velocity = new Vector3(playerRigid.velocity.x, 0, playerRigid.velocity.z);
             controller.enabled = true;
         }
     }
