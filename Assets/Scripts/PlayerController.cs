@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 10.0f;
+    public float moveSpeed = 40.0f;
+    public float runSpeed = 80.0f;
+    float curSpeed;
+    float accel = 10.0f;
+    float decel = 10.0f;
     public Transform cameraTransform;
+    bool enableJump = true;
+
     CharacterController characterController = null;
 
     //중력
@@ -18,20 +24,76 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
     }
+    //현재 이동 방향, 기존 이동방향
+    Vector3 moveDirection =new Vector3(0, 0, 0);
+    Vector3 tempDirection = new Vector3(0, 0, 0);
 
-    // Update is called once per frame
-    void Update()
+    //점프 한번만
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        //Debug.Log(hit.moveDirection.x + hit.moveDirection.y + hit.moveDirection.z);
+        if(hit.moveDirection.y <= -1 || hit.moveDirection.y >= -0.95)
+        {
+            enableJump = true;
+            accel = 10.0f;
+        }
+        
+    }
+
+
+// Update is called once per frame
+void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        Vector3 moveDirection = new Vector3(x, 0, z);
+        // running
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
+        {
+            moveDirection = new Vector3(x, 0, z);
+            if (curSpeed < runSpeed)
+            {
+                curSpeed += accel * Time.deltaTime;
+            }
+            if (moveDirection.x == x && moveDirection.z == z)
+            {
+                tempDirection = moveDirection;
+            }
+        }
+        //walking
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            moveDirection = new Vector3(x, 0, z);
+            if (curSpeed < moveSpeed)
+            {
+
+                curSpeed += accel * Time.deltaTime;
+            }
+            else//running -> walking
+            {
+                curSpeed -= decel * Time.deltaTime;
+            }
+            if (moveDirection.x == x && moveDirection.z == z)
+            {
+                tempDirection = moveDirection;
+            }
+        }
+        else
+        {
+            moveDirection = tempDirection;
+            if (curSpeed > 0)
+            {
+                curSpeed -= decel * Time.deltaTime;
+            }
+            else curSpeed = 0;
+        }
         moveDirection = cameraTransform.TransformDirection(moveDirection);
-        moveDirection *= moveSpeed;
-        characterController.Move(moveDirection * Time.deltaTime);
-       
-        if (Input.GetButtonDown("Jump"))
+        moveDirection *= curSpeed;
+
+        if (Input.GetButtonDown("Jump") && enableJump == true)
         {
             yVelocity = jumpSpeed;
+            accel = 5.0f;
+            enableJump = false;
         }
         yVelocity += gravity * Time.deltaTime;
         moveDirection.y = yVelocity;
