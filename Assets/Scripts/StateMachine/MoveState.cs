@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Floor;
 
 public class MoveState : StateMachineBehaviour
 {
-    public FloorMovement.FloorStates direction; 
+    public FloorStates direction; 
     /*
      * 0 : Idle, 1 : Forward, 2 : Backward
      * 3 : Right, 4: Left
