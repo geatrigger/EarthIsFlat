@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6223571403869624721}
   - component: {fileID: 6223571403865406109}
   - component: {fileID: 6223571403867658576}
+  - component: {fileID: 7146041979476072422}
   m_Layer: 9
   m_Name: movingFloor
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MonoBehaviour:
   direction: 0
   floorSpeed: 10
   floorTransform: {fileID: 6223571403867207089}
+--- !u!65 &7146041979476072422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223571403867658579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.000002, y: 0.1817455, z: 4}
+  m_Center: {x: -0.0000004768372, y: 0.2908726, z: 0.00000047683716}
