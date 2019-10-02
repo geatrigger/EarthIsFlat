@@ -45,6 +45,7 @@ public class FloorMovement : MonoBehaviour
     public FloorStates direction;
     public float floorSpeed = 10.0f;
     public Transform floorTransform;
+    public Rigidbody floorRigidBody;
     public List<FloorOrder> orders;
     int curOrderIdx;
     Vector3 moveDistance;
@@ -53,6 +54,7 @@ public class FloorMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        floorRigidBody = GetComponent<Rigidbody>();
         curOrderIdx = -1;
         time = 0.01f;
     }
@@ -74,7 +76,9 @@ public class FloorMovement : MonoBehaviour
         }
         moveDistance = getMoveDistance();
         floorTransform.Translate(moveDistance * (Time.deltaTime /*- remainTime*/ ));
-        if(time == 0.0f)
+        
+        floorRigidBody.MovePosition(floorRigidBody.position += moveDistance * (Time.deltaTime /*- remainTime*/ ));
+        if (time == 0.0f)
         {
             nextOrder();
         }
@@ -136,9 +140,9 @@ public class FloorMovement : MonoBehaviour
             curOrderIdx = -1;
         }
         curOrderIdx++;
-        Debug.Log(curOrderIdx);
+        //Debug.Log(curOrderIdx);
         cycleTime = orders[curOrderIdx].GetCycleTime();
         direction = orders[curOrderIdx].GetDir();
-        Debug.Log(direction);
+        //Debug.Log(direction);
     }
 }
