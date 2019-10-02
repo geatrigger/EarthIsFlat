@@ -126,7 +126,7 @@ public class FloorMovement : MonoBehaviour
             orders = null;
             return;
         }
-        nextOrder();
+        //nextOrder();
     }
 
     private void nextOrder()

@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         yVelocity += gravity * Time.deltaTime;
         moveDirection.y = yVelocity;
         characterController.Move(moveDirection * Time.deltaTime);
-        //characterController.Move(movingFloor * Time.deltaTime);
+        characterController.Move(movingFloor * Time.deltaTime);
 
         movingFloor = new Vector3(0, 0, 0);
 
