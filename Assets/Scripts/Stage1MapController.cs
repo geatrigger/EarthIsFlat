@@ -130,8 +130,8 @@ public class Stage1MapController : MonoBehaviour
         foreach (GameObject door in doors)
         {
             index++;
-            Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
-            Debug.Log(doorOrdersList[index]);
+            //Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
+            //Debug.Log(doorOrdersList[index]);
             door.gameObject.GetComponentInChildren<DoorTrigger>().OrderToDoor(doorOrdersList[index][curTimeZone], curTimeZone);
         }
         return;

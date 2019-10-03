@@ -692,6 +692,9 @@ MonoBehaviour:
   - {fileID: 1308747094}
   - {fileID: 1924393846}
   - {fileID: 1412239537}
+  doors:
+  - {fileID: 1632928462}
+  - {fileID: 426975192}
 --- !u!4 &964942059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 590518996816981979, guid: 2946e230cdf2264479299a828331cadc,
@@ -1844,6 +1847,11 @@ PrefabInstance:
       propertyPath: otherDoor
       value: 
       objectReference: {fileID: 1632928462}
+    - target: {fileID: 4451426609521795431, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 426975192}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac643e081c4f0fd4f842c8e5324b3001, type: 3}
 --- !u!4 &2116038357 stripped
@@ -1993,6 +2001,11 @@ PrefabInstance:
       propertyPath: otherDoor
       value: 
       objectReference: {fileID: 426975192}
+    - target: {fileID: 4451426609521795431, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: me
+      value: 
+      objectReference: {fileID: 1632928462}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac643e081c4f0fd4f842c8e5324b3001, type: 3}
 --- !u!4 &2343249084506065962 stripped
