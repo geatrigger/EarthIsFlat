@@ -19,16 +19,21 @@ public class PlayerController : MonoBehaviour
     public float gravity = -10.0f;
     //점프
     public float jumpSpeed = 10.0f;
+
+    //현재 이동 방향, 기존 이동방향
+    public Vector3 moveDirection = new Vector3(0, 0, 0);
+    Vector3 tempDirection = new Vector3(0, 0, 0);
+    Vector3 movingFloor = new Vector3(0, 0, 0);
+    GameObject movingObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
-    //현재 이동 방향, 기존 이동방향
-    Vector3 moveDirection =new Vector3(0, 0, 0);
-    Vector3 tempDirection = new Vector3(0, 0, 0);
-    Vector3 movingFloor = new Vector3(0, 0, 0);
-    GameObject movingObject;
+
+
     //점프 한번만
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -49,8 +54,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-// Update is called once per frame
-void Update()
+    // Update is called once per frame
+    void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -68,7 +73,7 @@ void Update()
             }*/
         }
         //walking
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             curSpeed = moveSpeed;
             /*if (curSpeed < moveSpeed)
@@ -100,6 +105,7 @@ void Update()
 
         if (Input.GetButtonDown("Jump") && enableJump == true)
         {
+            movingObject = null;
             yVelocity = jumpSpeed;
             enableJump = false;
         }
@@ -113,11 +119,11 @@ void Update()
         {
             movingFloor = movingObject.GetComponent<FloorMovement>().GetMoveDistance();
             characterController.Move(movingFloor * Time.deltaTime);
-            
+
         }
         movingFloor = new Vector3(0, 0, 0);
 
-        if(characterController.collisionFlags == CollisionFlags.Below)
+        if (characterController.collisionFlags == CollisionFlags.Below)
         {
             yVelocity = 0.0f;
         }
