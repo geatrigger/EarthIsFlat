@@ -18,7 +18,7 @@ public class TriggerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
