@@ -5,11 +5,17 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     public GameObject otherDoor;
+    public GameObject me;
     float forwardFactor = 3.0f;
+    public int goalTimeZone;
+    public int curTimeZone;
+    Stage1MapController map;
+    Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        map = GameObject.Find("Map").GetComponent<Stage1MapController>();
+        initPos = me.transform.position;
     }
 
     // Update is called once per frame
@@ -28,6 +34,14 @@ public class DoorTrigger : MonoBehaviour
             Rigidbody playerRigid = other.gameObject.GetComponent<Rigidbody>();
             //playerRigid.velocity = new Vector3(playerRigid.velocity.x, 0, playerRigid.velocity.z);
             controller.enabled = true;
+            map.ChangeTimeZone(curTimeZone, goalTimeZone);
         }
+    }
+
+    public void OrderToDoor(bool state, int timeZone)
+    {
+        curTimeZone = timeZone;
+        me.transform.position = initPos;
+        me.SetActive(state);
     }
 }

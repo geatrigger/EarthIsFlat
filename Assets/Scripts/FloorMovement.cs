@@ -132,6 +132,7 @@ public class FloorMovement : MonoBehaviour
             orders = null;
             return;
         }
+        curOrderIdx = -1;
         floorRigidBody.transform.position = initialPosition;
         nextOrder();
     }
