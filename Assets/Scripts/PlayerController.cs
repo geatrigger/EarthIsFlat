@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     Vector3 tempDirection = new Vector3(0, 0, 0);
     Vector3 movingFloor = new Vector3(0, 0, 0);
     GameObject movingObject;
-
+    GameObject target;
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +38,9 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log(hit.moveDirection.x + hit.moveDirection.y + hit.moveDirection.z);
-        if(hit.moveDirection.y <= -1 || hit.moveDirection.y >= -0.95)
+        if(hit.moveDirection.y >= -1 && hit.moveDirection.y <= -0.95)
         {
             enableJump = true;
-            accel = 10.0f;
         }
         //Debug.Log(hit.collider);
         if (hit.collider.gameObject.layer == LayerMask.NameToLayer("MovingFloor"))
@@ -123,9 +122,30 @@ public class PlayerController : MonoBehaviour
         }
         movingFloor = new Vector3(0, 0, 0);
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            target = GetClickedObject();
+            if(target.layer == 9)
+            {
+                Debug.Log("Click!");
+            }
+        }
         if (characterController.collisionFlags == CollisionFlags.Below)
         {
             yVelocity = 0.0f;
         }
+    }
+    private GameObject GetClickedObject()
+    {
+
+        RaycastHit hit;
+
+        GameObject target = null;
+
+        if (true == (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 10.0f)))
+        {
+            target = hit.collider.gameObject;
+        }
+        return target;
     }
 }
