@@ -47,6 +47,7 @@ public class FloorMovement : MonoBehaviour
     public Transform floorTransform;
     public Rigidbody floorRigidBody;
     public List<FloorOrder> orders;
+    Vector3 initialPosition;
     int curOrderIdx;
     Vector3 moveDistance;
     float time = 0.0f;
@@ -57,6 +58,7 @@ public class FloorMovement : MonoBehaviour
         floorRigidBody = GetComponent<Rigidbody>();
         curOrderIdx = -1;
         time = 0.01f;
+        initialPosition = floorRigidBody.transform.position;
     }
 
     // Update is called once per frame
@@ -130,6 +132,8 @@ public class FloorMovement : MonoBehaviour
             orders = null;
             return;
         }
+        curOrderIdx = -1;
+        floorRigidBody.transform.position = initialPosition;
         nextOrder();
     }
 
