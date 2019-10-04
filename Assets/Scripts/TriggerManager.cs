@@ -18,8 +18,9 @@ public class TriggerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            //other.GetComponent<PlayerController>().moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
             other.transform.position = new Vector3(0, 10.0f, 0);

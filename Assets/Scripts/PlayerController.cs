@@ -19,24 +19,28 @@ public class PlayerController : MonoBehaviour
     public float gravity = -10.0f;
     //점프
     public float jumpSpeed = 10.0f;
+
+    //현재 이동 방향, 기존 이동방향
+    public Vector3 moveDirection = new Vector3(0, 0, 0);
+    Vector3 tempDirection = new Vector3(0, 0, 0);
+    Vector3 movingFloor = new Vector3(0, 0, 0);
+    GameObject movingObject;
+    GameObject target;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
-    //현재 이동 방향, 기존 이동방향
-    Vector3 moveDirection =new Vector3(0, 0, 0);
-    Vector3 tempDirection = new Vector3(0, 0, 0);
-    Vector3 movingFloor = new Vector3(0, 0, 0);
-    GameObject movingObject;
+
+
     //점프 한번만
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //Debug.Log(hit.moveDirection.x + hit.moveDirection.y + hit.moveDirection.z);
-        if(hit.moveDirection.y <= -1 || hit.moveDirection.y >= -0.95)
+        if(hit.moveDirection.y >= -1 && hit.moveDirection.y <= -0.95)
         {
             enableJump = true;
-            accel = 10.0f;
         }
         //Debug.Log(hit.collider);
         if (hit.collider.gameObject.layer == LayerMask.NameToLayer("MovingFloor"))
@@ -49,8 +53,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-// Update is called once per frame
-void Update()
+    // Update is called once per frame
+    void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -68,7 +72,7 @@ void Update()
             }*/
         }
         //walking
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             curSpeed = moveSpeed;
             /*if (curSpeed < moveSpeed)
@@ -100,6 +104,7 @@ void Update()
 
         if (Input.GetButtonDown("Jump") && enableJump == true)
         {
+            movingObject = null;
             yVelocity = jumpSpeed;
             enableJump = false;
         }
@@ -113,13 +118,35 @@ void Update()
         {
             movingFloor = movingObject.GetComponent<FloorMovement>().GetMoveDistance();
             characterController.Move(movingFloor * Time.deltaTime);
-            
+
         }
         movingFloor = new Vector3(0, 0, 0);
 
-        if(characterController.collisionFlags == CollisionFlags.Below)
+        if (Input.GetKey(KeyCode.E))
+        {
+            target = GetClickedObject();
+            if(target.layer == 9)
+            {
+                Debug.Log("Click!");
+            }
+        }
+        if (characterController.collisionFlags == CollisionFlags.Below)
         {
             yVelocity = 0.0f;
         }
+    }
+    private GameObject GetClickedObject()
+    {
+
+        RaycastHit hit;
+
+        GameObject target = null;
+
+        if (true == (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 10.0f)))
+        {
+
+            target = hit.collider.gameObject;
+        }
+        return target;
     }
 }
