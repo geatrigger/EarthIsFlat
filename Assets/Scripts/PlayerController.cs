@@ -125,7 +125,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             target = GetClickedObject();
-            if (target.layer == LayerMask.NameToLayer("Button"))
+            if (target == null){ }
+            else if (target.layer == LayerMask.NameToLayer("Button"))
             {
                 target.GetComponent<ButtonTrigger>().moveCube();
             }
