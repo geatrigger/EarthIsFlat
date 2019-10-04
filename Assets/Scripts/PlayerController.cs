@@ -129,6 +129,10 @@ public class PlayerController : MonoBehaviour
             {
                 target.GetComponent<ButtonTrigger>().moveCube();
             }
+            else if (target.layer == LayerMask.NameToLayer("TimeCapsule"))
+            {
+                target.GetComponent<TimeCapsule>().ClickObject();
+            }
         }
         if (characterController.collisionFlags == CollisionFlags.Below)
         {
