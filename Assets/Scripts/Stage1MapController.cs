@@ -8,14 +8,17 @@ public class Stage1MapController : MonoBehaviour
 {
     public List<GameObject> movingPlatforms;
     public List<GameObject> doors;
+    public List<GameObject> capsules;
     public List<List<FloorOrder>> ordersList;
     public List<List<bool>> doorOrdersList;
+    public List<List<bool>> capsuleOrdersList;
     float time;
     int curTimeZone;
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
+
         doorOrdersList = new List<List<bool>>();
         List<bool> do1 = new List<bool>();
         do1.Add(false);
@@ -27,6 +30,13 @@ public class Stage1MapController : MonoBehaviour
         do2.Add(true);
         doorOrdersList.Add(do2);
         doors[1].gameObject.GetComponentInChildren<DoorTrigger>().goalTimeZone = 0;
+
+        capsuleOrdersList = new List<List<bool>>();
+        List<bool> ca1 = new List<bool>();
+        ca1.Add(true);
+        ca1.Add(false);
+        capsuleOrdersList.Add(ca1);
+        capsules[0].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
         StartTimeZone(1);
 
     }
@@ -133,6 +143,14 @@ public class Stage1MapController : MonoBehaviour
             //Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
             //Debug.Log(doorOrdersList[index]);
             door.gameObject.GetComponentInChildren<DoorTrigger>().OrderToDoor(doorOrdersList[index][curTimeZone], curTimeZone);
+        }
+        index = -1;
+        foreach (GameObject capsule in capsules)
+        {
+            index++;
+            //Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
+            //Debug.Log(doorOrdersList[index]);
+            capsule.gameObject.GetComponentInChildren<TimeCapsule>().OrderToTimeCapsule(capsuleOrdersList[index][curTimeZone], curTimeZone);
         }
         return;
     }
