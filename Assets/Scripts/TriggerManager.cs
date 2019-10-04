@@ -20,7 +20,7 @@ public class TriggerManager : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //other.GetComponent<PlayerController>().moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+            other.GetComponent<PlayerController>().moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
             other.transform.position = new Vector3(0, 10.0f, 0);

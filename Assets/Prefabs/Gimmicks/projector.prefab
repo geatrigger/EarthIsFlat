@@ -5149,8 +5149,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683463618535888237}
-  - component: {fileID: 1683463618538322701}
   - component: {fileID: 1683463618519019425}
+  - component: {fileID: 1415846086446288942}
+  - component: {fileID: 6562056485056278818}
   m_Layer: 0
   m_Name: projector
   m_TagString: Untagged
@@ -5176,20 +5177,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1683463618538322701
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683463618536293285}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: b94be10dedfa9c246b5c439440e580f5, type: 3}
 --- !u!205 &1683463618519019425
 LODGroup:
   m_ObjectHideFlags: 0
@@ -5215,6 +5202,34 @@ LODGroup:
     - renderer: {fileID: 1683463618534079487}
     - renderer: {fileID: 1683463618534109297}
   m_Enabled: 1
+--- !u!114 &1415846086446288942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683463618536293285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e9defcb9fe5bd44818a1567c996884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalTimeZone: 0
+  curTimeZone: 0
+--- !u!136 &6562056485056278818
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683463618536293285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1 &1683463618536305227
 GameObject:
   m_ObjectHideFlags: 0
