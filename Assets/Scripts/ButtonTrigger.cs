@@ -27,7 +27,6 @@ public class ButtonTrigger : MonoBehaviour
             case "Button1":
                 speed = new Vector3(0.0f, 1.0f, 0.0f);
                 checkTime = 0.0f;
-                Debug.Log("22222");
                 break;
             case "Button2":
                 break;
@@ -42,7 +41,6 @@ public class ButtonTrigger : MonoBehaviour
         {
             if (checkTime < 7.0f)
             {
-                Debug.Log("33333");
                 toActive.transform.Translate(speed * Time.deltaTime);
                 checkTime += Time.deltaTime;
             }

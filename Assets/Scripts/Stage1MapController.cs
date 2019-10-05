@@ -14,6 +14,7 @@ public class Stage1MapController : MonoBehaviour
     public List<List<bool>> capsuleOrdersList;
     float time;
     int curTimeZone;
+    EffectManager fadeInOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,7 @@ public class Stage1MapController : MonoBehaviour
         capsuleOrdersList.Add(ca1);
         capsules[0].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
         StartTimeZone(1);
-
+        fadeInOut = GameObject.Find("darkPanel").GetComponent<EffectManager>();
     }
 
     public void StartTimeZone(int state)
@@ -102,18 +103,22 @@ public class Stage1MapController : MonoBehaviour
     {
         //
     }
-
+    int publicState;
     public void ChangeTimeZone(int currentState, int nextState)
     {
         if(currentState == 0 && nextState == 1)
         {
-
+            //동면할때
         }
         else if(currentState == 1 && nextState == 0)
         {
-
+            //문을 통과할때
+            //fadeInOut.StartFadeIn();
+            //fadeInOut.StartFadeOut();
+            //fadeInOut.StartFadeInOut();
         }
-        StartTimeZone(nextState);
+        publicState = nextState;
+        StartCoroutine("timeChange");
     }
     // Update is called once per frame
     void Update()
@@ -153,5 +158,14 @@ public class Stage1MapController : MonoBehaviour
             capsule.gameObject.GetComponentInChildren<TimeCapsule>().OrderToTimeCapsule(capsuleOrdersList[index][curTimeZone], curTimeZone);
         }
         return;
+    }
+
+    IEnumerator timeChange()
+    {
+        fadeInOut.StartFadeIn();
+        yield return new WaitForSeconds(2.0f);
+        StartTimeZone(publicState);
+        fadeInOut.StartFadeOut();
+
     }
 }

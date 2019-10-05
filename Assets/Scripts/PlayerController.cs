@@ -128,7 +128,6 @@ public class PlayerController : MonoBehaviour
             if (target == null){ }
             else if (target.layer == LayerMask.NameToLayer("Button"))
             {
-                Debug.Log("11111");
                 target.GetComponent<ButtonTrigger>().moveCube();
             }
             else if (target.layer == LayerMask.NameToLayer("TimeCapsule"))
