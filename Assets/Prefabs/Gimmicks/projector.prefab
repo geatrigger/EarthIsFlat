@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1683463618535934225}
   - component: {fileID: 1683463618517588887}
   - component: {fileID: 1683463618517543361}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   - component: {fileID: 1683463618535975857}
   - component: {fileID: 1683463618535170067}
   - component: {fileID: 1683463618534109297}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hologram_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4899,7 +4899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683463618535945407}
   - component: {fileID: 1683463618542273939}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4991,7 +4991,7 @@ GameObject:
   - component: {fileID: 1683463618535889903}
   - component: {fileID: 1683463618535152605}
   - component: {fileID: 1683463618534099111}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hologram_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5069,7 +5069,7 @@ GameObject:
   - component: {fileID: 1683463618536005627}
   - component: {fileID: 1683463618535110391}
   - component: {fileID: 1683463618534110023}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: projector_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5152,7 +5152,7 @@ GameObject:
   - component: {fileID: 1683463618519019425}
   - component: {fileID: 1415846086446288942}
   - component: {fileID: 6562056485056278818}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5241,7 +5241,7 @@ GameObject:
   - component: {fileID: 1683463618535994017}
   - component: {fileID: 1683463618535154137}
   - component: {fileID: 1683463618534079487}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: projector_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

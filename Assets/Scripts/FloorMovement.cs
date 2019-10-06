@@ -11,12 +11,22 @@ namespace Floor
         //private int i;
         private FloorStates dir;
         private float cycleTime;
+        private float speed;
+
+        public FloorOrder(FloorStates direction, float cycle, float spd)
+        {
+            //i = f_idx++;
+            dir = direction;
+            cycleTime = cycle;
+            speed = spd;
+        }
 
         public FloorOrder(FloorStates direction, float cycle)
         {
             //i = f_idx++;
             dir = direction;
             cycleTime = cycle;
+            speed = 10.0f;
         }
 
         public FloorStates GetDir()
@@ -26,6 +36,10 @@ namespace Floor
         public float GetCycleTime()
         {
             return cycleTime;
+        }
+        public float GetFloorSpeed()
+        {
+            return speed;
         }
     }
 
@@ -147,6 +161,7 @@ public class FloorMovement : MonoBehaviour
         //Debug.Log(curOrderIdx);
         cycleTime = orders[curOrderIdx].GetCycleTime();
         direction = orders[curOrderIdx].GetDir();
+        floorSpeed = orders[curOrderIdx].GetFloorSpeed();
         //Debug.Log(direction);
     }
 }
