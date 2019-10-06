@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 30.0f;
-    public float runSpeed = 60.0f;
+    public float moveSpeed;
+    public float runSpeed;
     float curSpeed;
     float accel = 10.0f;
     float decel = 10.0f;
@@ -14,11 +14,12 @@ public class PlayerController : MonoBehaviour
 
     CharacterController characterController = null;
 
+    public int doorCnt;
     //중력
     float yVelocity = 0.0f;
-    public float gravity = -10.0f;
+    public float gravity;
     //점프
-    public float jumpSpeed = 10.0f;
+    public float jumpSpeed;
 
     //현재 이동 방향, 기존 이동방향
     public Vector3 moveDirection = new Vector3(0, 0, 0);
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        doorCnt = 0;
     }
 
 
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            doorCnt = 0;
             /*moveDirection = tempDirection;
             if (curSpeed > 0)
             {
@@ -99,8 +102,6 @@ public class PlayerController : MonoBehaviour
             else curSpeed = 0;*/
         }
         moveDirection = new Vector3(x, 0, z);
-        moveDirection = cameraTransform.TransformDirection(moveDirection);
-        moveDirection *= curSpeed;
 
         if (Input.GetButtonDown("Jump") && enableJump == true)
         {
@@ -112,7 +113,11 @@ public class PlayerController : MonoBehaviour
         {
             yVelocity += gravity * Time.deltaTime;
         }
+
+        moveDirection = cameraTransform.TransformDirection(moveDirection);
+        moveDirection *= curSpeed;
         moveDirection.y = yVelocity;
+
         characterController.Move(moveDirection * Time.deltaTime);
         if (movingObject && movingObject.layer == LayerMask.NameToLayer("MovingFloor"))
         {
