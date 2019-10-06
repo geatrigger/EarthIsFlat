@@ -67,6 +67,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherDoor: {fileID: 0}
+  me: {fileID: 0}
+  goalTimeZone: 0
+  curTimeZone: 0
 --- !u!1 &1867115676460663796
 GameObject:
   m_ObjectHideFlags: 0
