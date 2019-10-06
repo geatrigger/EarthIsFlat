@@ -37,7 +37,7 @@ public abstract class IStageMapController : MonoBehaviour
         foreach (GameObject platform in movingPlatforms)
         {
             index++;
-            if (ordersList.Count >= index)
+            if (ordersList.Count > index)
             {
                 platform.gameObject.GetComponent<FloorMovement>().OrderToFloor(ordersList[index]);
             }
