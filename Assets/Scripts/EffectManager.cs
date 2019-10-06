@@ -17,11 +17,15 @@ public class EffectManager : MonoBehaviour
 
     bool isPlaying = false;
 
+    PlayerController playerController;
+    MouseLook playerMouse;
     // Start is called before the first frame update
     void Start()
     {
         myImage = GetComponent<Image>();
         myImage.enabled = false;
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerMouse = GameObject.Find("Main Camera").GetComponent<MouseLook>();
     }
 
     public void StartFadeIn()
@@ -66,9 +70,13 @@ public class EffectManager : MonoBehaviour
         fadeColor.a = 1.0f;
         myImage.color = fadeColor;
         myImage.enabled = false;
+        playerController.enabled = true;
+        playerMouse.enabled = true;
     }
     IEnumerator fadeOut()
     {
+        playerController.enabled = false;
+        playerMouse.enabled = false;
         isPlaying = true;
 
         Color fadeColor = myImage.color;

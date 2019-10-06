@@ -117,5 +117,4 @@ public class Stage1MapController : IStageMapController
     {
         time += Time.deltaTime;
     }
-   
 }
