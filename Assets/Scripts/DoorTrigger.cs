@@ -21,7 +21,7 @@ public class DoorTrigger : MonoBehaviour
     float rotationY = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         map = GameObject.Find("Map").GetComponent<IStageMapController>();
         initPos = me.transform.position;

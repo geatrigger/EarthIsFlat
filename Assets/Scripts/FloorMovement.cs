@@ -59,7 +59,7 @@ public class FloorMovement : MonoBehaviour
     public FloorStates direction;
     public float floorSpeed = 10.0f;
     public Transform floorTransform;
-    public Rigidbody floorRigidBody;
+    Rigidbody floorRigidBody;
     public List<FloorOrder> orders;
     Vector3 initialPosition;
     int curOrderIdx;
@@ -67,7 +67,7 @@ public class FloorMovement : MonoBehaviour
     float time = 0.0f;
     float cycleTime = 0.0f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         floorRigidBody = GetComponent<Rigidbody>();
         curOrderIdx = -1;

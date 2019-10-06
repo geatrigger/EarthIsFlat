@@ -9,7 +9,7 @@ public class TimeCapsule : MonoBehaviour
     IStageMapController map;
     Vector3 initPos;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         map = GameObject.Find("Map").GetComponent<IStageMapController>();
         initPos = gameObject.transform.position;

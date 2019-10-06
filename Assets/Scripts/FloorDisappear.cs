@@ -11,7 +11,7 @@ public class FloorDisappear : MonoBehaviour
     public GameObject disappearEffect;
     GameObject disappearEffectObject;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         myRenderer = GetComponent<MeshRenderer>();
         myCollider = GetComponent<BoxCollider>();
