@@ -65,7 +65,6 @@ public class Stage1MapController : IStageMapController
             disappearingOrdersList = new List<List<bool>>();
             List<bool> di1 = new List<bool>();
             di1.Add(false);
-            disappearingOrdersList.Add(di1);
         }
         else if(state == 1)
         {
@@ -95,7 +94,6 @@ public class Stage1MapController : IStageMapController
             disappearingOrdersList = new List<List<bool>>();
             List<bool> di1 = new List<bool>();
             di1.Add(true);
-            disappearingOrdersList.Add(di1);
         }
         OrderSystemOnline();
     }

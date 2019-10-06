@@ -171,11 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0c8cd4be41cb44f8352e1afa4aeb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
-  runSpeed: 60
+  moveSpeed: 15
+  runSpeed: 25
   cameraTransform: {fileID: 1506454188214977883}
-  gravity: -20
-  jumpSpeed: 10
+  doorCnt: 0
+  gravity: -40
+  jumpSpeed: 15
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1506454188506089815
 GameObject:

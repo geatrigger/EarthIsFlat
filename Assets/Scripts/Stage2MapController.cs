@@ -69,6 +69,28 @@ public class Stage2MapController : IStageMapController
             po4.Add(new FloorOrder(FloorStates.Backward, 2.5f, 40.0f));
             ordersList.Add(po4);
 
+            disappearingOrdersList = new List<List<bool>>();
+            List<bool> di1 = new List<bool>();
+            di1.Add(false);
+            disappearingOrdersList.Add(di1);
+            List<bool> di2 = new List<bool>();
+            di2.Add(false);
+            disappearingOrdersList.Add(di2);
+            List<bool> di3 = new List<bool>();
+            di3.Add(false);
+            disappearingOrdersList.Add(di3);
+            List<bool> di4 = new List<bool>();
+            di4.Add(false);
+            disappearingOrdersList.Add(di4);
+            List<bool> di5 = new List<bool>();
+            di5.Add(false);
+            disappearingOrdersList.Add(di5);
+            List<bool> di6 = new List<bool>();
+            di6.Add(false);
+            disappearingOrdersList.Add(di6);
+            List<bool> di7 = new List<bool>();
+            di7.Add(false);
+            disappearingOrdersList.Add(di7);
         }
         else if (state == 1)
         {
@@ -103,6 +125,28 @@ public class Stage2MapController : IStageMapController
             po4.Add(new FloorOrder(FloorStates.Backward, 2.0f, 50.0f));
             ordersList.Add(po4);
 
+            disappearingOrdersList = new List<List<bool>>();
+            List<bool> di1 = new List<bool>();
+            di1.Add(true);
+            disappearingOrdersList.Add(di1);
+            List<bool> di2 = new List<bool>();
+            di2.Add(true);
+            disappearingOrdersList.Add(di2);
+            List<bool> di3 = new List<bool>();
+            di3.Add(true);
+            disappearingOrdersList.Add(di3);
+            List<bool> di4 = new List<bool>();
+            di4.Add(true);
+            disappearingOrdersList.Add(di4);
+            List<bool> di5 = new List<bool>();
+            di5.Add(true);
+            disappearingOrdersList.Add(di5);
+            List<bool> di6 = new List<bool>();
+            di6.Add(true);
+            disappearingOrdersList.Add(di6);
+            List<bool> di7 = new List<bool>();
+            di7.Add(true);
+            disappearingOrdersList.Add(di7);
         }
         OrderSystemOnline();
     }
