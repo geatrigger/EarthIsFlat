@@ -6,6 +6,8 @@ public class FloorDisappear : MonoBehaviour
 {
     MeshRenderer myRenderer;
     BoxCollider myCollider;
+    int curTimeZone;
+    bool disappearState;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,8 @@ public class FloorDisappear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(ShowAndHide(gameObject, 2.0f));
+        if(disappearState)
+            StartCoroutine(ShowAndHide(gameObject, 2.0f));
     }
     /* void OnTriggerStay(Collider other)
     {
@@ -43,6 +46,11 @@ public class FloorDisappear : MonoBehaviour
         StopCoroutine(ShowAndHide(gameObject, 2.0f));
         StartCoroutine(Show(gameObject, 5.0f));
 
+    }
+    public void OrderToDisappearFloor(bool state, int timeZone)
+    {
+        curTimeZone = timeZone;
+        disappearState = state; // true if disappears
     }
 
 
