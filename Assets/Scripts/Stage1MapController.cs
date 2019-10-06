@@ -32,7 +32,6 @@ public class Stage1MapController : IStageMapController
         capsules[0].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
         StartTimeZone(1);
         fadeInOut = Panel.GetComponent<EffectManager>();
-        Debug.Log(fadeInOut);
     }
 
     public override void StartTimeZone(int state)
@@ -62,7 +61,11 @@ public class Stage1MapController : IStageMapController
             po3.Add(new FloorOrder(FloorStates.Idle, 3.0f));
             po3.Add(new FloorOrder(FloorStates.Down, 4.0f));
             ordersList.Add(po3);
-
+            
+            disappearingOrdersList = new List<List<bool>>();
+            List<bool> di1 = new List<bool>();
+            di1.Add(false);
+            disappearingOrdersList.Add(di1);
         }
         else if(state == 1)
         {
@@ -89,6 +92,10 @@ public class Stage1MapController : IStageMapController
             po3.Add(new FloorOrder(FloorStates.Up, 4.0f));
             ordersList.Add(po3);
 
+            disappearingOrdersList = new List<List<bool>>();
+            List<bool> di1 = new List<bool>();
+            di1.Add(true);
+            disappearingOrdersList.Add(di1);
         }
         OrderSystemOnline();
     }
