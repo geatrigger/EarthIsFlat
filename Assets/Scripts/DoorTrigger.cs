@@ -9,12 +9,12 @@ public class DoorTrigger : MonoBehaviour
     float forwardFactor = 3.0f;
     public int goalTimeZone;
     public int curTimeZone;
-    Stage1MapController map;
+    IStageMapController map;
     Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
-        map = GameObject.Find("Map").GetComponent<Stage1MapController>();
+        map = GameObject.Find("Map").GetComponent<IStageMapController>();
         initPos = me.transform.position;
     }
 

@@ -1,20 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Floor;
 
 
-public class Stage1MapController : MonoBehaviour
+public class Stage1MapController : IStageMapController
 {
-    public List<GameObject> movingPlatforms;
-    public List<GameObject> doors;
-    public List<GameObject> capsules;
-    public List<List<FloorOrder>> ordersList;
-    public List<List<bool>> doorOrdersList;
-    public List<List<bool>> capsuleOrdersList;
-    float time;
-    int curTimeZone;
-    EffectManager fadeInOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +31,11 @@ public class Stage1MapController : MonoBehaviour
         capsuleOrdersList.Add(ca1);
         capsules[0].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
         StartTimeZone(1);
-        fadeInOut = GameObject.Find("darkPanel").GetComponent<EffectManager>();
+        fadeInOut = Panel.GetComponent<EffectManager>();
+        Debug.Log(fadeInOut);
     }
 
-    public void StartTimeZone(int state)
+    public override void StartTimeZone(int state)
     {
         curTimeZone = state;
         if (state == 0)
@@ -99,12 +92,11 @@ public class Stage1MapController : MonoBehaviour
         }
         OrderSystemOnline();
     }
-    public void EndTimeZone(int state)
+    public override void EndTimeZone(int state)
     {
         //
     }
-    int publicState;
-    public void ChangeTimeZone(int currentState, int nextState)
+    public override void ChangeTimeZone(int currentState, int nextState)
     {
         if(currentState == 0 && nextState == 1)
         {
@@ -125,47 +117,5 @@ public class Stage1MapController : MonoBehaviour
     {
         time += Time.deltaTime;
     }
-    
-    void OrderSystemOnline()
-    {
-        int index = -1;
-        foreach (GameObject platform in movingPlatforms)
-        {
-            index++;
-            if (ordersList.Count >= index)
-            {
-                platform.gameObject.GetComponent<FloorMovement>().OrderToFloor(ordersList[index]);
-            }
-            else
-            {
-                index--;
-            }
-        }
-        index = -1;
-        foreach (GameObject door in doors)
-        {
-            index++;
-            //Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
-            //Debug.Log(doorOrdersList[index]);
-            door.gameObject.GetComponentInChildren<DoorTrigger>().OrderToDoor(doorOrdersList[index][curTimeZone], curTimeZone);
-        }
-        index = -1;
-        foreach (GameObject capsule in capsules)
-        {
-            index++;
-            //Debug.Log("doorOrdersList[" + index + "][" + curTimeZone + "]");
-            //Debug.Log(doorOrdersList[index]);
-            capsule.gameObject.GetComponentInChildren<TimeCapsule>().OrderToTimeCapsule(capsuleOrdersList[index][curTimeZone], curTimeZone);
-        }
-        return;
-    }
-
-    IEnumerator timeChange()
-    {
-        fadeInOut.StartFadeIn();
-        yield return new WaitForSeconds(2.0f);
-        StartTimeZone(publicState);
-        fadeInOut.StartFadeOut();
-
-    }
+   
 }
