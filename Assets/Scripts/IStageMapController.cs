@@ -66,9 +66,9 @@ public abstract class IStageMapController : MonoBehaviour
     }
     public virtual IEnumerator timeChange()
     {
-        fadeInOut.StartFadeIn();
+        fadeInOut.StartFadeOut();
         yield return new WaitForSeconds(2.0f);
         StartTimeZone(publicState);
-        fadeInOut.StartFadeOut();
+        fadeInOut.StartFadeIn();
     }
 }

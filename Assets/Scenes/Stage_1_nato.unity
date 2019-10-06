@@ -788,6 +788,7 @@ MonoBehaviour:
   - {fileID: 426975192}
   capsules:
   - {fileID: 1619732443}
+  Panel: {fileID: 1724302627}
 --- !u!4 &964942059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 590518996816981979, guid: 2946e230cdf2264479299a828331cadc,
