@@ -8,6 +8,8 @@ public class FloorDisappear : MonoBehaviour
     BoxCollider myCollider;
     int curTimeZone;
     bool disappearState;
+    public GameObject disappearEffect;
+    GameObject disappearEffectObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +32,11 @@ public class FloorDisappear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(disappearState)
+        if (disappearState)
+        {
+            disappearEffectObject = Instantiate<GameObject>(disappearEffect);
             StartCoroutine(ShowAndHide(gameObject, 2.0f));
+        }
     }
     /* void OnTriggerStay(Collider other)
     {
@@ -58,6 +63,7 @@ public class FloorDisappear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(disappearEffectObject != null)
+            disappearEffectObject.transform.position = gameObject.transform.position;
     }
 }
