@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     bool enableJump = true;
 
     CharacterController characterController = null;
-
+    Animator robotAnimator;
     public int doorCnt;
     //중력
     float yVelocity = 0.0f;
@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         doorCnt = 0;
+        robotAnimator = GetComponentInChildren<Animator>();
     }
 
 
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
         {
             curSpeed = runSpeed;
+            robotAnimator.SetInteger("isWhat", 3);
             /*if (curSpeed < runSpeed)
             {
                 curSpeed += accel * Time.deltaTime;
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             curSpeed = moveSpeed;
+            robotAnimator.SetInteger("isWhat", 2);
             /*if (curSpeed < moveSpeed)
             {
 
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             doorCnt = 0;
+            robotAnimator.SetInteger("isWhat", 1);
             /*moveDirection = tempDirection;
             if (curSpeed > 0)
             {
