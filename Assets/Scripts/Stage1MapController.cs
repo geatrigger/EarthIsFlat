@@ -162,10 +162,10 @@ public class Stage1MapController : MonoBehaviour
 
     IEnumerator timeChange()
     {
-        fadeInOut.StartFadeIn();
+        fadeInOut.StartFadeOut();
         yield return new WaitForSeconds(2.0f);
         StartTimeZone(publicState);
-        fadeInOut.StartFadeOut();
+        fadeInOut.StartFadeIn();
 
     }
 }
