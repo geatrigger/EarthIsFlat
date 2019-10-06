@@ -70,7 +70,7 @@ public class DoorTrigger : MonoBehaviour
         while (time<=2.0f)
         {
             time += Time.deltaTime;
-            player.transform.Translate(otherDoor.transform.forward * 10.0f * time);
+            player.transform.Translate(otherDoor.transform.forward * 2.0f * time);
             //fadeColor.a = Mathf.Lerp(start, end, time);
             //myImage.color = fadeColor;
             yield return null;
