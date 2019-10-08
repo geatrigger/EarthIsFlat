@@ -10,12 +10,21 @@ public class FloorDisappear : MonoBehaviour
     bool disappearState;
     public GameObject disappearEffect;
     GameObject disappearEffectObject;
+    public Texture brokenTexture;
+    public Texture normalTexture;
+    
     // Start is called before the first frame update
     void Awake()
     {
         myRenderer = GetComponent<MeshRenderer>();
         myCollider = GetComponent<BoxCollider>();
+        
     }
+    private void Start()
+    {
+        
+    }
+
     IEnumerator ShowAndHide(GameObject go, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -56,6 +65,15 @@ public class FloorDisappear : MonoBehaviour
     {
         curTimeZone = timeZone;
         disappearState = state; // true if disappears
+        if(state == true)
+        {
+            myRenderer.materials[1].SetTexture(1, brokenTexture);
+        }
+        else
+        {
+            myRenderer.materials[1].SetTexture(1, normalTexture);
+        }
+
     }
 
 
