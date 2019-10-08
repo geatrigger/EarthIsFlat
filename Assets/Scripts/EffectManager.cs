@@ -16,16 +16,21 @@ public class EffectManager : MonoBehaviour
     float time = 0f;
 
     bool isPlaying = false;
-
+    GameObject player;
     PlayerController playerController;
     MouseLook playerMouse;
+    RobotMovement robotMove;
+    Animator robotAnimator;
     // Start is called before the first frame update
     void Start()
     {
         myImage = GetComponent<Image>();
         myImage.enabled = false;
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerMouse = GameObject.Find("Main Camera").GetComponent<MouseLook>();
+        player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
+        playerMouse = player.GetComponentInChildren<MouseLook>();
+        robotMove = player.GetComponentInChildren<RobotMovement>();
+        robotAnimator = player.GetComponentInChildren<Animator>();
     }
 
     public void StartFadeIn()
@@ -72,11 +77,14 @@ public class EffectManager : MonoBehaviour
         myImage.enabled = false;
         playerController.enabled = true;
         playerMouse.enabled = true;
+        robotMove.enabled = true;
     }
     IEnumerator fadeOut()
     {
+        robotAnimator.SetInteger("isWhat", 3);
         playerController.enabled = false;
         playerMouse.enabled = false;
+        robotMove.enabled = false;
         isPlaying = true;
 
         Color fadeColor = myImage.color;
