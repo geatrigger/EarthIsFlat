@@ -52,7 +52,7 @@ public class BombManager : MonoBehaviour
         time = 0.0f;
         while (time < 0.5)
         {
-            hitdir.y = 2.0f * Mathf.Lerp(1.0f, -0.5f, time*2);
+            hitdir.y = 1.0f * Mathf.Lerp(1.0f, -0.5f, time*2);
             time += Time.deltaTime;
             Player.transform.Translate(hitdir * 1.0f * Time.deltaTime);
 
