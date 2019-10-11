@@ -9,6 +9,7 @@ public class FireManager : MonoBehaviour
 
     Vector3 FireVector;
     Vector3 FirePosition;
+    public float shotDelay;
     float timer =0.0f;
     float power = 20.0f;
     bool fire;
@@ -24,7 +25,7 @@ public class FireManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 3.0f && fire)
+        if (timer > shotDelay && fire)
         {
             GameObject obj = Instantiate(CanonBall);
 
@@ -36,7 +37,7 @@ public class FireManager : MonoBehaviour
 
     public void OrderToCanon(bool state)
     {
-        Canon.transform.GetChild(1).gameObject.SetActive(state);
+        Canon.transform.GetChild(1).gameObject.SetActive(state); // off laser
         fire = state;
 
     }

@@ -41,7 +41,7 @@ public class BombManager : MonoBehaviour
             StartCoroutine("pushPlayer");
         }
         time += Time.deltaTime;
-        if (time > 6.0 && PlayerIsHit == false)
+        if (time > 3.0 && PlayerIsHit == false)
         {
             Destroy(this.gameObject);
         }
