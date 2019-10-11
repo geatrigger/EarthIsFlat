@@ -4,29 +4,43 @@ using UnityEngine;
 
 public class ButtonTrigger : MonoBehaviour
 {
-
-    public GameObject toActive;
-    Vector3 speed = new Vector3(0.0f, 0.0f, 0.0f);
+    MeshRenderer myRenderer;
+    BoxCollider myCollider;
+    public GameObject brokenEffect;
+    public GameObject[] toActives;
+    public Vector3[] speed;
     float checkTime = 0.0f;
     bool[] acting = new bool[10];
+    bool[] buttonChk = new bool[10];
+    public Texture brokenTexture;
+    public Texture normalTexture;
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < 10; i++)
         {
-            acting[i] = true;
+            acting[i] = false;
+            buttonChk[i] = false;
         }
+        myRenderer = GetComponent<MeshRenderer>();
+        myCollider = GetComponent<BoxCollider>();
+        brokenEffect.SetActive(false);
 
     }
-    public void moveCube()
+    public void ClickObject()
     {
 
         switch (name)
         {
-            case "Button1":
-                speed = new Vector3(0.0f, 1.0f, 0.0f);
-                checkTime = 0.0f;
+            case "Tuto_Button1":
+
+                if (buttonChk[0] == false)
+                {
+                    acting[0] = true;
+                    checkTime = 0.0f;
+                    buttonChk[0] = true;
+                }
                 break;
             case "Button2":
                 break;
@@ -41,20 +55,36 @@ public class ButtonTrigger : MonoBehaviour
         {
             if (checkTime < 7.0f)
             {
-                toActive.transform.Translate(speed * Time.deltaTime);
+                int count = 0;
+                foreach (GameObject toActive in toActives)
+                {
+                    toActive.transform.Translate(speed[count] * Time.deltaTime);
+                    count++;
+                }
                 checkTime += Time.deltaTime;
             }
-            else if (checkTime >= 7.0f && speed.sqrMagnitude != 0.0f)
+            else if (checkTime >= 7.0f && speed[0].sqrMagnitude != 0.0f)
             {
                 acting[0] = false;
                 checkTime = 0.0f;
-                speed = new Vector3(0.0f, 0.0f, 0.0f);
             }
         }
     }
 
-    public void OrderToButton()
+    public void OrderToButton(bool state)
     {
+        if (state != true)
+        {
+            myRenderer.material.SetColor("broken", Color.red);
+            myCollider.enabled = state;
+            brokenEffect.SetActive(false);
+        }
+        else
+        {
+            myRenderer.material.SetColor("normal", Color.green);
+            myCollider.enabled = state;
+            brokenEffect.SetActive(true);
+        }
 
     }
 }
