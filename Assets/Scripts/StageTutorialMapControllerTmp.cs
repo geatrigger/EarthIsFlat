@@ -23,6 +23,16 @@ public class StageTutorialMapControllerTmp : IStageMapController
         do2.Add(true);
         doorOrdersList.Add(do2);
         doors[1].gameObject.GetComponentInChildren<DoorTrigger>().goalTimeZone = 0;
+        List<bool> do3 = new List<bool>();
+        do3.Add(false);
+        do3.Add(true);
+        doorOrdersList.Add(do3);
+        doors[2].gameObject.GetComponentInChildren<DoorTrigger>().goalTimeZone = 0;
+        List<bool> do4 = new List<bool>();
+        do4.Add(false);
+        do4.Add(true);
+        doorOrdersList.Add(do4);
+        doors[3].gameObject.GetComponentInChildren<DoorTrigger>().goalTimeZone = 0;
 
         capsuleOrdersList = new List<List<bool>>();
         List<bool> ca1 = new List<bool>();
@@ -30,6 +40,11 @@ public class StageTutorialMapControllerTmp : IStageMapController
         ca1.Add(false);
         capsuleOrdersList.Add(ca1);
         capsules[0].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
+        List<bool> ca2 = new List<bool>();
+        ca2.Add(true);
+        ca2.Add(false);
+        capsuleOrdersList.Add(ca2);
+        capsules[1].gameObject.GetComponentInChildren<TimeCapsule>().goalTimeZone = 1;
         StartTimeZone(1);
         fadeInOut = Panel.GetComponent<EffectManager>();
     }
@@ -43,17 +58,24 @@ public class StageTutorialMapControllerTmp : IStageMapController
 
             List<FloorOrder> po1 = new List<FloorOrder>();
             po1.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po1.Add(new FloorOrder(FloorStates.Forward, 4.0f));
+            po1.Add(new FloorOrder(FloorStates.Forward, 3.5f));
             po1.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po1.Add(new FloorOrder(FloorStates.Backward, 4.0f));
+            po1.Add(new FloorOrder(FloorStates.Backward, 3.5f));
             ordersList.Add(po1);
 
             List<FloorOrder> po2 = new List<FloorOrder>();
             po2.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po2.Add(new FloorOrder(FloorStates.Left, 4.0f, 9.0f));
+            po2.Add(new FloorOrder(FloorStates.Left, 3.93f, 9.0f));
             po2.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po2.Add(new FloorOrder(FloorStates.Right, 4.0f, 9.0f));
+            po2.Add(new FloorOrder(FloorStates.Right, 3.93f, 9.0f));
             ordersList.Add(po2);
+
+            List<FloorOrder> po3 = new List<FloorOrder>();
+            po3.Add(new FloorOrder(FloorStates.Idle, 1.0f));
+            po3.Add(new FloorOrder(FloorStates.Left, 3.93f, 9.0f));
+            po3.Add(new FloorOrder(FloorStates.Idle, 1.0f));
+            po3.Add(new FloorOrder(FloorStates.Right, 3.93f, 9.0f));
+            ordersList.Add(po3);
 
             disappearingOrdersList = new List<List<bool>>();
             List<bool> di1 = new List<bool>();
@@ -85,6 +107,44 @@ public class StageTutorialMapControllerTmp : IStageMapController
             List<bool> diw4 = new List<bool>();
             diw4.Add(true);
             disappearingWallOrdersList.Add(diw4);
+
+            disappearingButtonOrdersList = new List<List<bool>>();
+            List<bool> dib1 = new List<bool>();
+            dib1.Add(true);
+            disappearingButtonOrdersList.Add(dib1);
+
+
+            canonsList = new List<List<bool>>();
+            List<bool> can1 = new List<bool>();
+            can1.Add(true);
+            canonsList.Add(can1);
+            List<bool> can2 = new List<bool>();
+            can2.Add(true);
+            canonsList.Add(can2);
+            List<bool> can3 = new List<bool>();
+            can3.Add(true);
+            canonsList.Add(can3);
+            List<bool> can4 = new List<bool>();
+            can4.Add(true);
+            canonsList.Add(can4);
+            List<bool> can5 = new List<bool>();
+            can5.Add(true);
+            canonsList.Add(can5);
+            List<bool> can6 = new List<bool>();
+            can6.Add(true);
+            canonsList.Add(can6);
+            List<bool> can7 = new List<bool>();
+            can7.Add(true);
+            canonsList.Add(can7);
+            List<bool> can8 = new List<bool>();
+            can8.Add(true);
+            canonsList.Add(can8);
+            List<bool> can9 = new List<bool>();
+            can9.Add(true);
+            canonsList.Add(can9);
+            List<bool> can10 = new List<bool>();
+            can10.Add(true);
+            canonsList.Add(can10);
         }
         else if (state == 1)
         {
@@ -92,17 +152,24 @@ public class StageTutorialMapControllerTmp : IStageMapController
 
             List<FloorOrder> po1 = new List<FloorOrder>();
             po1.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po1.Add(new FloorOrder(FloorStates.Backward, 4.0f));
+            po1.Add(new FloorOrder(FloorStates.Forward, 3.5f));
             po1.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po1.Add(new FloorOrder(FloorStates.Forward, 4.0f));
+            po1.Add(new FloorOrder(FloorStates.Backward, 3.5f));
             ordersList.Add(po1);
 
             List<FloorOrder> po2 = new List<FloorOrder>();
             po2.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po2.Add(new FloorOrder(FloorStates.Left, 4.0f, 18.0f));
+            po2.Add(new FloorOrder(FloorStates.Left, 3.93f, 9.0f));
             po2.Add(new FloorOrder(FloorStates.Idle, 1.0f));
-            po2.Add(new FloorOrder(FloorStates.Right, 4.0f, 18.0f));
+            po2.Add(new FloorOrder(FloorStates.Right, 3.93f, 9.0f));
             ordersList.Add(po2);
+
+            List<FloorOrder> po3 = new List<FloorOrder>();
+            po3.Add(new FloorOrder(FloorStates.Idle, 1.0f));
+            po3.Add(new FloorOrder(FloorStates.Left, 3.93f, 9.0f));
+            po3.Add(new FloorOrder(FloorStates.Idle, 1.0f));
+            po3.Add(new FloorOrder(FloorStates.Right, 3.93f, 9.0f));
+            ordersList.Add(po3);
 
             disappearingOrdersList = new List<List<bool>>();
             List<bool> di1 = new List<bool>();
@@ -134,6 +201,43 @@ public class StageTutorialMapControllerTmp : IStageMapController
             List<bool> diw4 = new List<bool>();
             diw4.Add(false);
             disappearingWallOrdersList.Add(diw4);
+
+            disappearingButtonOrdersList = new List<List<bool>>();
+            List<bool> dib1 = new List<bool>();
+            dib1.Add(false);
+            disappearingButtonOrdersList.Add(dib1);
+
+            canonsList = new List<List<bool>>();
+            List<bool> can1 = new List<bool>();
+            can1.Add(false);
+            canonsList.Add(can1);
+            List<bool> can2 = new List<bool>();
+            can2.Add(false);
+            canonsList.Add(can2);
+            List<bool> can3 = new List<bool>();
+            can3.Add(false);
+            canonsList.Add(can3);
+            List<bool> can4 = new List<bool>();
+            can4.Add(false);
+            canonsList.Add(can4);
+            List<bool> can5 = new List<bool>();
+            can5.Add(false);
+            canonsList.Add(can5);
+            List<bool> can6 = new List<bool>();
+            can6.Add(false);
+            canonsList.Add(can6);
+            List<bool> can7 = new List<bool>();
+            can7.Add(false);
+            canonsList.Add(can7);
+            List<bool> can8 = new List<bool>();
+            can8.Add(false);
+            canonsList.Add(can8);
+            List<bool> can9 = new List<bool>();
+            can9.Add(false);
+            canonsList.Add(can9);
+            List<bool> can10 = new List<bool>();
+            can10.Add(false);
+            canonsList.Add(can10);
         }
         OrderSystemOnline();
     }

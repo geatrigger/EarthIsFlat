@@ -75,7 +75,7 @@ public class DoorTrigger : MonoBehaviour
             //myImage.color = fadeColor;
             yield return null;
         }
-        player.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor;
+        player.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor + new Vector3(0.0f, 1.0f, 0.0f);
     }
     public void OrderToDoor(bool state, int timeZone)
     {

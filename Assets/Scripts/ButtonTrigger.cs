@@ -77,13 +77,13 @@ public class ButtonTrigger : MonoBehaviour
         {
             myRenderer.material.SetColor("broken", Color.red);
             myCollider.enabled = state;
-            brokenEffect.SetActive(false);
+            brokenEffect.SetActive(true);
         }
         else
         {
             myRenderer.material.SetColor("normal", Color.green);
             myCollider.enabled = state;
-            brokenEffect.SetActive(true);
+            brokenEffect.SetActive(false);
         }
 
     }
