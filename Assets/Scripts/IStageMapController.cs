@@ -10,10 +10,12 @@ public abstract class IStageMapController : MonoBehaviour
     public List<GameObject> doors;
     public List<GameObject> capsules;
     public List<GameObject> disappearingPlatforms;
+    public List<GameObject> disappearingWalls;
     public List<List<FloorOrder>> ordersList;
     public List<List<bool>> doorOrdersList;
     public List<List<bool>> capsuleOrdersList;
     public List<List<bool>> disappearingOrdersList;
+    public List<List<bool>> disappearingWallOrdersList;
     public Image Panel;
     protected int curTimeZone;
     protected int publicState;
@@ -39,6 +41,7 @@ public abstract class IStageMapController : MonoBehaviour
         foreach (GameObject platform in movingPlatforms)
         {
             index++;
+            Debug.Log(ordersList.Count);
             if (ordersList.Count > index)
             {
                 platform.gameObject.GetComponent<FloorMovement>().OrderToFloor(ordersList[index]);
@@ -65,6 +68,13 @@ public abstract class IStageMapController : MonoBehaviour
         {
             index++;
             platform.gameObject.GetComponentInChildren<FloorDisappear>().OrderToDisappearFloor(disappearingOrdersList[index][0], curTimeZone);
+        }
+        index = -1;
+        foreach (GameObject wall in disappearingWalls)
+        {
+            index++;
+            Debug.Log(disappearingWallOrdersList.Count);
+            wall.gameObject.GetComponentInChildren<WallMovement>().OrderToWall(disappearingWallOrdersList[index][0], curTimeZone);
         }
         return;
     }

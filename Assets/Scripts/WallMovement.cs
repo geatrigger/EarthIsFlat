@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class WallMovement : MonoBehaviour
 {
-    public GameObject me;
+    int curTimeZone;
+    MeshRenderer m;
+    BoxCollider b;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m = GetComponent<MeshRenderer>();
+        b = GetComponent<BoxCollider>();
     }
-    public void OrderToWall(bool state)
+    public void OrderToWall(bool state, int timeZone)
     {
-        me.SetActive(state);
-        //달리 할게 없음
+        m.enabled = state;
+        b.enabled = state;
+        curTimeZone = timeZone;
     }
 
 
