@@ -62,7 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 10de6384af0c3b54e8166f9c3f936e88, type: 2}
-  - {fileID: 2100000, guid: 62dcf96e239eb0d4db44cbe622abf152, type: 2}
+  - {fileID: 2100000, guid: bee88ef388b9dd3458cea8ce0b63f407, type: 2}
   - {fileID: 2100000, guid: 6b6dfd77776c54a4781ec8cab4d87860, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disappearEffect: {fileID: 379366022794205229, guid: 645e4990d92a5ff48b3d10627031bbcd,
     type: 3}
+  brokenTexture: {fileID: 2800000, guid: 04e2c0bc03965dd449934101b45d9d79, type: 3}
+  normalTexture: {fileID: 2800000, guid: 26d4d63e94c354a478b2fe05bb112302, type: 3}
 --- !u!65 &5488774711864009981
 BoxCollider:
   m_ObjectHideFlags: 0
