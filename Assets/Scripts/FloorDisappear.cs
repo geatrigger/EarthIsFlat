@@ -41,7 +41,7 @@ public class FloorDisappear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (disappearState)
+        if (disappearState && other.gameObject.name == "Player")
         {
             disappearEffectObject = Instantiate<GameObject>(disappearEffect);
             StartCoroutine(ShowAndHide(gameObject, 2.0f));
@@ -57,8 +57,11 @@ public class FloorDisappear : MonoBehaviour
     }*/
     private void OnTriggerExit(Collider other)
     {
-        StopCoroutine(ShowAndHide(gameObject, 2.0f));
-        StartCoroutine(Show(gameObject, 5.0f));
+        if (other.gameObject.name == "Player")
+        {
+            StopCoroutine(ShowAndHide(gameObject, 2.0f));
+            StartCoroutine(Show(gameObject, 5.0f));
+        }
 
     }
     public void OrderToDisappearFloor(bool state, int timeZone)
