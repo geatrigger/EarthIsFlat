@@ -134,10 +134,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             target = GetClickedObject();
+
             if (target == null){ }
             else if (target.layer == LayerMask.NameToLayer("Button"))
             {
-                target.GetComponent<ButtonTrigger>().moveCube();
+                target.GetComponent<ButtonTrigger>().ClickObject();
             }
             else if (target.layer == LayerMask.NameToLayer("TimeCapsule"))
             {
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
 
         GameObject target = null;
 
-        if (true == (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 10.0f)))
+        if (true == (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, 15.0f)))
         {
 
             target = hit.collider.gameObject;
