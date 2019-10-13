@@ -310,7 +310,7 @@ Skybox:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8112955378622643584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
 --- !u!1 &8112955379243011016
 GameObject:
@@ -567,7 +567,7 @@ Skybox:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8112955379407378075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
 --- !u!124 &8112955379407378078
 Behaviour:
@@ -710,6 +710,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8576519484551274649}
     m_Modifications:
+    - target: {fileID: 1649786219021862216, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: m_Name
+      value: inside(1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1867115676460843322, guid: ac643e081c4f0fd4f842c8e5324b3001,
         type: 3}
       propertyPath: m_Name
@@ -780,11 +785,6 @@ PrefabInstance:
       propertyPath: me
       value: 
       objectReference: {fileID: 7601603647851072669}
-    - target: {fileID: 1649786219021862216, guid: ac643e081c4f0fd4f842c8e5324b3001,
-        type: 3}
-      propertyPath: m_Name
-      value: inside(1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac643e081c4f0fd4f842c8e5324b3001, type: 3}
 --- !u!4 &7966853749266396221 stripped
