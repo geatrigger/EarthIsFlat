@@ -11,11 +11,15 @@ public abstract class IStageMapController : MonoBehaviour
     public List<GameObject> capsules;
     public List<GameObject> disappearingPlatforms;
     public List<GameObject> disappearingWalls;
+    public List<GameObject> disappearingButtons;
+    public List<GameObject> canons;
     public List<List<FloorOrder>> ordersList;
     public List<List<bool>> doorOrdersList;
     public List<List<bool>> capsuleOrdersList;
     public List<List<bool>> disappearingOrdersList;
     public List<List<bool>> disappearingWallOrdersList;
+    public List<List<bool>> disappearingButtonOrdersList;
+    public List<List<bool>> canonsList;
     public Image Panel;
     protected int curTimeZone;
     protected int publicState;
@@ -73,8 +77,19 @@ public abstract class IStageMapController : MonoBehaviour
         foreach (GameObject wall in disappearingWalls)
         {
             index++;
-            Debug.Log(disappearingWallOrdersList.Count);
             wall.gameObject.GetComponentInChildren<WallMovement>().OrderToWall(disappearingWallOrdersList[index][0], curTimeZone);
+        }
+        index = -1;
+        foreach (GameObject button in disappearingButtons)
+        {
+            index++;
+            button.gameObject.GetComponentInChildren<ButtonTrigger>().OrderToButton(disappearingWallOrdersList[index][0]);
+        }
+        index = -1;
+        foreach (GameObject canon in canons)
+        {
+            index++;
+            canon.gameObject.GetComponentInChildren<FireManager>().OrderToCanon(canonsList[index][0]);
         }
         return;
     }

@@ -41,7 +41,7 @@ public class BombManager : MonoBehaviour
             StartCoroutine("pushPlayer");
         }
         time += Time.deltaTime;
-        if (time > 3.0 && PlayerIsHit == false)
+        if (time > 1.5 && PlayerIsHit == false)
         {
             Destroy(this.gameObject);
         }
@@ -52,7 +52,7 @@ public class BombManager : MonoBehaviour
         time = 0.0f;
         while (time < 0.5)
         {
-            hitdir.y = 2.0f * Mathf.Lerp(1.0f, -0.5f, time*2);
+            hitdir.y = 1.0f * Mathf.Lerp(1.0f, -0.5f, time*2);
             time += Time.deltaTime;
             Player.transform.Translate(hitdir * 1.0f * Time.deltaTime);
 
