@@ -50,7 +50,6 @@ public class DoorTrigger : MonoBehaviour
             controller.enabled = true;
             if (other.gameObject.GetComponent<PlayerController>().doorCnt >= 3)
             {
-                other.gameObject.GetComponent<PlayerController>().doorCnt = 0;
                 StartCoroutine("ChangeTimeAnimation");
             }
             else
@@ -76,6 +75,7 @@ public class DoorTrigger : MonoBehaviour
             yield return null;
         }
         player.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor + new Vector3(0.0f, 1.0f, 0.0f);
+        player.gameObject.GetComponent<PlayerController>().doorCnt = 0;
     }
     public void OrderToDoor(bool state, int timeZone)
     {

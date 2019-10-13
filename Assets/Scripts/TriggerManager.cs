@@ -41,6 +41,28 @@ public class TriggerManager : MonoBehaviour
             case "Tuto_trigger_2":
                 if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
+                    StartCoroutine(Tuto_trigger_2());
+
+                }
+                break;
+            case "Tuto_trigger_3":
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    StartCoroutine(Tuto_trigger_3());
+
+                }
+                break;
+            case "Tuto_trigger_4":
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    StartCoroutine(Tuto_trigger_4());
+
+                }
+                break;
+            case "Tuto_trigger_5":
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
+                    StartCoroutine(Tuto_trigger_4());
 
                 }
                 break;
@@ -51,10 +73,42 @@ public class TriggerManager : MonoBehaviour
     IEnumerator Tuto_trigger_1()
     {
         text.SetActive(true);
-        text.GetComponent<Text>().text = "test1";
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 1>\n\n움직이는 발판이 낡아 부셔질 것 같습니다.\n문을 통과해 가속해서 시간을 되돌려\n발판을 복구할 수 있습니다.";
         
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
+        text.SetActive(false);
+    }
+    IEnumerator Tuto_trigger_2()
+    {
+        text.SetActive(true);
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 2>\n\n시간을 되돌리기 전에는 부서져 있던 벽이\n과거로 가며 복구되 통과할 수 없게 됬습니다.\n하지만 머지않아 부셔질 것 같네요.\n캡슐에 접근해 동면함으로서\n미래로 갈 수 있습니다.";
+
+        yield return new WaitForSeconds(4.0f);
         text.SetActive(false);
     }
 
+    IEnumerator Tuto_trigger_3()
+    {
+        text.SetActive(true);
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 3>\n\n버튼이 망가져서 작동하지 않습니다.\n시간을 되돌려서 버튼이 잘 작동하던 때로\n돌아가서 버튼을 작동시킬 수 있습니다.";
+
+        yield return new WaitForSeconds(4.0f);
+        text.SetActive(false);
+    }
+    IEnumerator Tuto_trigger_4()
+    {
+        text.SetActive(true);
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 4>\n\n시간을 되돌리면서 방비시설까지 작동하게 되었습니다.\n미래로 가서 시설의 작동을 다시 멈출 수 있습니다.";
+
+        yield return new WaitForSeconds(4.0f);
+        text.SetActive(false);
+    }
+    IEnumerator Tuto_trigger_5()
+    {
+        text.SetActive(true);
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 5>\n\n목표 지점에 도착했습니다.\n다음 스테이지로 진행 할 수 있습니다.";
+
+        yield return new WaitForSeconds(4.0f);
+        text.SetActive(false);
+    }
 }
