@@ -148,7 +148,7 @@ public class Stage2MapController : IStageMapController
             di7.Add(true);
             disappearingOrdersList.Add(di7);
         }
-        OrderSystemOnline();
+        OrderSystemOnline(state);
     }
     public override void EndTimeZone(int state)
     {

@@ -95,7 +95,7 @@ public class Stage1MapController : IStageMapController
             List<bool> di1 = new List<bool>();
             di1.Add(true);
         }
-        OrderSystemOnline();
+        OrderSystemOnline(state);
     }
     public override void EndTimeZone(int state)
     {

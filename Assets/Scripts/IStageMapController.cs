@@ -6,6 +6,7 @@ using Floor;
 
 public abstract class IStageMapController : MonoBehaviour
 {
+    public GameObject playerCamera;
     public List<GameObject> movingPlatforms;
     public List<GameObject> doors;
     public List<GameObject> capsules;
@@ -39,9 +40,10 @@ public abstract class IStageMapController : MonoBehaviour
     public abstract void StartTimeZone(int state);
     public abstract void EndTimeZone(int state);
     public abstract void ChangeTimeZone(int currentState, int nextState);
-    public void OrderSystemOnline()
+    public void OrderSystemOnline(int state)
     {
         int index = -1;
+        playerCamera.gameObject.GetComponent<MouseLook>().OrderToCamera(state);
         foreach (GameObject platform in movingPlatforms)
         {
             index++;

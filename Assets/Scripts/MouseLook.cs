@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
+    public Material skybox1, skybox2;
     float sensitivity = 700.0f;
 
     float rotationX = 0;
@@ -29,5 +29,12 @@ public class MouseLook : MonoBehaviour
 
         transform.eulerAngles = new Vector3(-rotationY, rotationX, 0.0f);
 
+    }
+    public void OrderToCamera(int state)
+    {
+        if (state == 0)
+            RenderSettings.skybox = skybox1;
+        else
+            RenderSettings.skybox = skybox2;
     }
 }
