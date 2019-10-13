@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class TriggerManager : MonoBehaviour
 {
     public GameObject text;
+    bool[] checkTrigger = new bool[30];
     // Start is called before the first frame update
     void Start()
     {
         text.SetActive(false);
+        for(int i=0; i<30; i++)
+        {
+            checkTrigger[i] = true;
+        }
     }
 
     // Update is called once per frame
@@ -24,45 +30,50 @@ public class TriggerManager : MonoBehaviour
             case "belowTrigger":
                 if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    other.GetComponent<PlayerController>().moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+                    Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+                    /*other.GetComponent<PlayerController>().moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
                     CharacterController controller = other.GetComponent<CharacterController>();
                     controller.enabled = false;
                     other.transform.position = new Vector3(0, 10.0f, 0);
-                    controller.enabled = true;
+                    controller.enabled = true;*/
                 }
                 break;
             case "Tuto_trigger_1":
-                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[0] == true)
                 {
                     StartCoroutine(Tuto_trigger_1());
-                    
+                    checkTrigger[0] = false;
                 }
                 break;
             case "Tuto_trigger_2":
-                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[1] == true)
                 {
                     StartCoroutine(Tuto_trigger_2());
+                    checkTrigger[1] = false;
 
                 }
                 break;
             case "Tuto_trigger_3":
-                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[2] == true)
                 {
                     StartCoroutine(Tuto_trigger_3());
+                    checkTrigger[2] = false;
 
                 }
                 break;
             case "Tuto_trigger_4":
-                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[3] == true)
                 {
                     StartCoroutine(Tuto_trigger_4());
+                    checkTrigger[3] = false;
 
                 }
                 break;
             case "Tuto_trigger_5":
-                if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[4] == true)
                 {
-                    StartCoroutine(Tuto_trigger_4());
+                    StartCoroutine(Tuto_trigger_5());
+                    checkTrigger[4] = false;
 
                 }
                 break;
