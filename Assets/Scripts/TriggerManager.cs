@@ -84,16 +84,32 @@ public class TriggerManager : MonoBehaviour
 
                 }
                 break;
+            case "Start_trigger":
+                if (other.gameObject.layer == LayerMask.NameToLayer("Player") && checkTrigger[6] == true)
+                {
+                    StartCoroutine(Start_trigger());
+                    checkTrigger[6] = false;
+
+                }
+                break;
         }
 
     }
 
+    IEnumerator Start_trigger()
+    {
+        text.SetActive(true);
+        text.GetComponentInChildren<Text>().text = "캐릭터 조작 : wasd\n점프 : space bar\n달리기 : shift\n상호작용 : E";
+
+        yield return new WaitForSeconds(3.0f);
+        text.SetActive(false);
+    }
     IEnumerator Tuto_trigger_0()
     {
         text.SetActive(true);
         text.GetComponentInChildren<Text>().text = "<튜토리얼 1>\n\n낡은 발판은 부셔집니다.\n빠르게 통과해야 합니다.";
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         text.SetActive(false);
     }
     IEnumerator Tuto_trigger_1()
@@ -107,7 +123,7 @@ public class TriggerManager : MonoBehaviour
     IEnumerator Tuto_trigger_2()
     {
         text.SetActive(true);
-        text.GetComponentInChildren<Text>().text = "<튜토리얼 3>\n\n시간을 되돌리기 전에는 부서져 있던 벽이\n과거로 가며 복구되 통과할 수 없게 됬습니다.\n하지만 머지않아 부셔질 것 같네요.\n캡슐에 접근해 동면함으로서\n미래로 갈 수 있습니다.";
+        text.GetComponentInChildren<Text>().text = "<튜토리얼 3>\n\n시간을 되돌리기 전에는 부서져 있던 벽이\n과거로 가며 복구되어 통과할 수 없게 됬습니다.\n하지만 머지않아 부셔질 것 같네요.\n캡슐에 접근해 동면함으로서\n미래로 갈 수 있습니다.";
 
         yield return new WaitForSeconds(5.0f);
         text.SetActive(false);

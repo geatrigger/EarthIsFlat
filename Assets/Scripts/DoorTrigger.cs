@@ -51,6 +51,7 @@ public class DoorTrigger : MonoBehaviour
             controller.enabled = true;
             if (other.gameObject.GetComponent<PlayerController>().doorCnt >= 3)
             {
+                other.gameObject.GetComponent<PlayerController>().doorCnt = -1000;
                 StartCoroutine("ChangeTimeAnimation");
             }
             else

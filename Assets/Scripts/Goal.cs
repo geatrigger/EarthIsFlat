@@ -7,13 +7,10 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
     public string nextScene;
-    public Image panel;
-    public Text GameOverText;
+    public GameObject text;
     // Start is called before the first frame update
     void Start()
     {
-        panel.enabled = false;
-        GameOverText.enabled = false;
     }
 
     // Update is called once per frame
@@ -28,9 +25,9 @@ public class Goal : MonoBehaviour
         {
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
-            GameOverText.text = "=!=TEST_SUCCESS=!=";
-            panel.enabled = true;
-            GameOverText.enabled = true;
+            text.SetActive(true);
+            //GameOverText.enabled = true;
+            text.GetComponentInChildren<Text>().text = "You Win!";
             SceneManager.LoadScene(nextScene);
         }
     }
