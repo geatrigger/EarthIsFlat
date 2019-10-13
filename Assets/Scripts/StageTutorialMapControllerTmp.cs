@@ -239,7 +239,7 @@ public class StageTutorialMapControllerTmp : IStageMapController
             can10.Add(false);
             canonsList.Add(can10);
         }
-        OrderSystemOnline();
+        OrderSystemOnline(state);
     }
     public override void EndTimeZone(int state)
     {
