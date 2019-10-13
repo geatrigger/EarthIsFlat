@@ -81,6 +81,7 @@ public class EffectManager : MonoBehaviour
     }
     IEnumerator fadeOut()
     {
+        Debug.Log("1111");
         robotAnimator.SetInteger("isWhat", 3);
         playerController.enabled = false;
         playerMouse.enabled = false;
