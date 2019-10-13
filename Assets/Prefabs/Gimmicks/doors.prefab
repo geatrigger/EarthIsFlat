@@ -545,7 +545,7 @@ Camera:
   m_TargetTexture: {fileID: 8400000, guid: a7098fe092686de478d3b50b0d34aced, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -602,11 +602,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8576519484551274649}
     m_Modifications:
-    - target: {fileID: 1867115676460843322, guid: ac643e081c4f0fd4f842c8e5324b3001,
-        type: 3}
-      propertyPath: m_Name
-      value: door_1
-      objectReference: {fileID: 0}
     - target: {fileID: 1867115676460911182, guid: ac643e081c4f0fd4f842c8e5324b3001,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,6 +657,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1867115676460843322, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: m_Name
+      value: door_1
+      objectReference: {fileID: 0}
     - target: {fileID: 4451426609521795431, guid: ac643e081c4f0fd4f842c8e5324b3001,
         type: 3}
       propertyPath: otherDoor
@@ -710,16 +710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8576519484551274649}
     m_Modifications:
-    - target: {fileID: 1649786219021862216, guid: ac643e081c4f0fd4f842c8e5324b3001,
-        type: 3}
-      propertyPath: m_Name
-      value: inside(1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1867115676460843322, guid: ac643e081c4f0fd4f842c8e5324b3001,
-        type: 3}
-      propertyPath: m_Name
-      value: door_1 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1867115676460911182, guid: ac643e081c4f0fd4f842c8e5324b3001,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -774,6 +764,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867115676460843322, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: m_Name
+      value: door_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649786219021862216, guid: ac643e081c4f0fd4f842c8e5324b3001,
+        type: 3}
+      propertyPath: m_Name
+      value: inside(1)
       objectReference: {fileID: 0}
     - target: {fileID: 4451426609521795431, guid: ac643e081c4f0fd4f842c8e5324b3001,
         type: 3}
