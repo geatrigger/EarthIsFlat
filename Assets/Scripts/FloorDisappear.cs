@@ -10,8 +10,8 @@ public class FloorDisappear : MonoBehaviour
     bool disappearState;
     public GameObject disappearEffect;
     GameObject disappearEffectObject;
-    public Texture brokenTexture;
-    public Texture normalTexture;
+    public Texture[] brokenTexture;
+    public Texture[] normalTexture;
     
     // Start is called before the first frame update
     void Awake()
@@ -41,6 +41,7 @@ public class FloorDisappear : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("11");
         if (disappearState && other.gameObject.name == "Player")
         {
             disappearEffectObject = Instantiate<GameObject>(disappearEffect);
@@ -70,11 +71,13 @@ public class FloorDisappear : MonoBehaviour
         disappearState = state; // true if disappears
         if(state == true)
         {
-            myRenderer.materials[1].SetTexture(1, brokenTexture);
+            myRenderer.materials[0].SetTexture(1, brokenTexture[0]);
+            myRenderer.materials[1].SetTexture(1, brokenTexture[1]);
         }
         else
         {
-            myRenderer.materials[1].SetTexture(1, normalTexture);
+            myRenderer.materials[0].SetTexture(1, normalTexture[0]);
+            myRenderer.materials[1].SetTexture(1, normalTexture[1]);
         }
 
     }

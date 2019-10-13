@@ -7,12 +7,15 @@ public class WallMovement : MonoBehaviour
     int curTimeZone;
     MeshRenderer m;
     BoxCollider b;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         m = GetComponent<MeshRenderer>();
         b = GetComponent<BoxCollider>();
+
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
     }
     public void OrderToWall(bool state, int timeZone)
     {

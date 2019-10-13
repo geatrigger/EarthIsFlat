@@ -91,6 +91,74 @@ public class Stage2MapController : IStageMapController
             List<bool> di7 = new List<bool>();
             di7.Add(false);
             disappearingOrdersList.Add(di7);
+            List<bool> di8 = new List<bool>();
+            di8.Add(false);
+            disappearingOrdersList.Add(di8);
+            List<bool> di9 = new List<bool>();
+            di9.Add(false);
+            disappearingOrdersList.Add(di9);
+            List<bool> di10 = new List<bool>();
+            di10.Add(false);
+            disappearingOrdersList.Add(di10);
+            List<bool> di11 = new List<bool>();
+            di11.Add(false);
+            disappearingOrdersList.Add(di11);
+            List<bool> di12 = new List<bool>();
+            di12.Add(false);
+            disappearingOrdersList.Add(di12);
+            List<bool> di13 = new List<bool>();
+            di13.Add(false);
+            disappearingOrdersList.Add(di13);
+            List<bool> di14 = new List<bool>();
+            di14.Add(false);
+            disappearingOrdersList.Add(di14);
+            List<bool> di15 = new List<bool>();
+            di15.Add(false);
+            disappearingOrdersList.Add(di15);
+
+            disappearingButtonOrdersList = new List<List<bool>>();
+            List<bool> dib1 = new List<bool>();
+            dib1.Add(true);
+            disappearingButtonOrdersList.Add(dib1);
+
+            disappearingWallOrdersList = new List<List<bool>>();
+            List<bool> diw1 = new List<bool>();
+            diw1.Add(true);
+            disappearingWallOrdersList.Add(diw1);
+            List<bool> diw2 = new List<bool>();
+            diw2.Add(true);
+            disappearingWallOrdersList.Add(diw2);
+            List<bool> diw3 = new List<bool>();
+            diw3.Add(true);
+            disappearingWallOrdersList.Add(diw3);
+            List<bool> diw4 = new List<bool>();
+            diw4.Add(true);
+            disappearingWallOrdersList.Add(diw4);
+
+
+            canonsList = new List<List<bool>>();
+            List<bool> can1 = new List<bool>();
+            can1.Add(true);
+            canonsList.Add(can1);
+            List<bool> can2 = new List<bool>();
+            can2.Add(true);
+            canonsList.Add(can2);
+            List<bool> can3 = new List<bool>();
+            can3.Add(true);
+            canonsList.Add(can3);
+            List<bool> can4 = new List<bool>();
+            can4.Add(true);
+            canonsList.Add(can4);
+            List<bool> can5 = new List<bool>();
+            can5.Add(true);
+            canonsList.Add(can5);
+            List<bool> can6 = new List<bool>();
+            can6.Add(true);
+            canonsList.Add(can6);
+            List<bool> can7 = new List<bool>();
+            can7.Add(true);
+            canonsList.Add(can7);
+
         }
         else if (state == 1)
         {
@@ -147,6 +215,72 @@ public class Stage2MapController : IStageMapController
             List<bool> di7 = new List<bool>();
             di7.Add(true);
             disappearingOrdersList.Add(di7);
+            List<bool> di8 = new List<bool>();
+            di8.Add(true);
+            disappearingOrdersList.Add(di8);
+            List<bool> di9 = new List<bool>();
+            di9.Add(true);
+            disappearingOrdersList.Add(di9);
+            List<bool> di10 = new List<bool>();
+            di10.Add(true);
+            disappearingOrdersList.Add(di10);
+            List<bool> di11 = new List<bool>();
+            di11.Add(true);
+            disappearingOrdersList.Add(di11);
+            List<bool> di12 = new List<bool>();
+            di12.Add(true);
+            disappearingOrdersList.Add(di12);
+            List<bool> di13 = new List<bool>();
+            di13.Add(true);
+            disappearingOrdersList.Add(di13);
+            List<bool> di14 = new List<bool>();
+            di14.Add(true);
+            disappearingOrdersList.Add(di14);
+            List<bool> di15 = new List<bool>();
+            di15.Add(true);
+            disappearingOrdersList.Add(di15);
+
+            disappearingButtonOrdersList = new List<List<bool>>();
+            List<bool> dib1 = new List<bool>();
+            dib1.Add(false);
+            disappearingButtonOrdersList.Add(dib1);
+
+            disappearingWallOrdersList = new List<List<bool>>();
+            List<bool> diw1 = new List<bool>();
+            diw1.Add(false);
+            disappearingWallOrdersList.Add(diw1);
+            List<bool> diw2 = new List<bool>();
+            diw2.Add(false);
+            disappearingWallOrdersList.Add(diw2);
+            List<bool> diw3 = new List<bool>();
+            diw3.Add(false);
+            disappearingWallOrdersList.Add(diw3);
+            List<bool> diw4 = new List<bool>();
+            diw4.Add(false);
+            disappearingWallOrdersList.Add(diw4);
+
+            canonsList = new List<List<bool>>();
+            List<bool> can1 = new List<bool>();
+            can1.Add(false);
+            canonsList.Add(can1);
+            List<bool> can2 = new List<bool>();
+            can2.Add(false);
+            canonsList.Add(can2);
+            List<bool> can3 = new List<bool>();
+            can3.Add(false);
+            canonsList.Add(can3);
+            List<bool> can4 = new List<bool>();
+            can4.Add(false);
+            canonsList.Add(can4);
+            List<bool> can5 = new List<bool>();
+            can5.Add(false);
+            canonsList.Add(can5);
+            List<bool> can6 = new List<bool>();
+            can6.Add(false);
+            canonsList.Add(can6);
+            List<bool> can7 = new List<bool>();
+            can7.Add(false);
+            canonsList.Add(can7);
         }
         OrderSystemOnline(state);
     }
