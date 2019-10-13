@@ -67,7 +67,7 @@ public class DoorTrigger : MonoBehaviour
         map.ChangeTimeZone(curTimeZone, goalTimeZone);
 
         float time = 0f;
-        while (time<=2.0f)
+        while (time<=1.0f)
         {
             time += Time.deltaTime;
             player.transform.Translate(otherDoor.transform.forward * 2.0f * time);

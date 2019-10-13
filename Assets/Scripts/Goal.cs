@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    public string nextScene;
     public Image panel;
     public Text GameOverText;
     // Start is called before the first frame update
@@ -29,6 +31,7 @@ public class Goal : MonoBehaviour
             GameOverText.text = "=!=TEST_SUCCESS=!=";
             panel.enabled = true;
             GameOverText.enabled = true;
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
