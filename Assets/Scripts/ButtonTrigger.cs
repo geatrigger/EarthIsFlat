@@ -16,6 +16,13 @@ public class ButtonTrigger : MonoBehaviour
     public Texture normalTexture;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+
+        myRenderer = GetComponent<MeshRenderer>();
+        myCollider = GetComponent<BoxCollider>();
+    }
     void Start()
     {
         for (int i = 0; i < 10; i++)
@@ -23,8 +30,6 @@ public class ButtonTrigger : MonoBehaviour
             acting[i] = false;
             buttonChk[i] = false;
         }
-        myRenderer = GetComponent<MeshRenderer>();
-        myCollider = GetComponent<BoxCollider>();
         brokenEffect.SetActive(false);
 
     }

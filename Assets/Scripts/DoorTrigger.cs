@@ -14,7 +14,7 @@ public class DoorTrigger : MonoBehaviour
     GameObject player;
     GameObject portalCamera;
 
-
+    Vector3 tempPos;
     public float sensitivity = 700.0f;
 
     float rotationX = 0;
@@ -44,13 +44,13 @@ public class DoorTrigger : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().doorCnt++;
             CharacterController controller = other.GetComponent<CharacterController>();
             controller.enabled = false;
+            tempPos = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor;
             other.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor;
             Rigidbody playerRigid = other.gameObject.GetComponent<Rigidbody>();
             //playerRigid.velocity = new Vector3(playerRigid.velocity.x, 0, playerRigid.velocity.z);
             controller.enabled = true;
             if (other.gameObject.GetComponent<PlayerController>().doorCnt >= 3)
             {
-                other.gameObject.GetComponent<PlayerController>().doorCnt = 0;
                 StartCoroutine("ChangeTimeAnimation");
             }
             else
@@ -75,7 +75,8 @@ public class DoorTrigger : MonoBehaviour
             //myImage.color = fadeColor;
             yield return null;
         }
-        player.transform.position = otherDoor.transform.position + otherDoor.transform.forward * forwardFactor + new Vector3(0.0f, 1.0f, 0.0f);
+        player.transform.position =tempPos + new Vector3(0.0f, 1.0f, 0.0f);
+        player.gameObject.GetComponent<PlayerController>().doorCnt = 0;
     }
     public void OrderToDoor(bool state, int timeZone)
     {
